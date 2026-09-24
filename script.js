@@ -1,27 +1,42 @@
 const container = document.querySelector(".container");
 
-// Make 16x16 grid of square divs
-for (let i = 0; i < 16; ++i) {
-    const row = document.createElement("div");
-    row.classList.add("row");
+function makeGrid(num) {
+    // Delete the existing grid
+    container.replaceChildren();  
 
-    for (let j = 0; j < 16; ++j) {
-        const cell = document.createElement("div");
-        cell.classList.add("cell");
-        row.appendChild(cell);
+    // Make the num x num grid
+    for (let i = 0; i < num; ++i) {
+        const row = document.createElement("div");
+        row.classList.add("row");
+
+        for (let j = 0; j < num; ++j) {
+            const cell = document.createElement("div");
+            cell.classList.add("cell");
+            row.appendChild(cell);
+        }
+
+        container.appendChild(row);
     }
 
-    container.appendChild(row);
+    // Add hover event listener to each cell
+    const cells = container.querySelectorAll(".cell");
+
+    cells.forEach((cell) => {
+        cell.addEventListener("mouseenter", () => {
+            cell.classList.add("hover");
+        });
+
+        cell.addEventListener("mouseleave", () => {
+            cell.classList.remove("hover");
+        });
+    });
 }
 
-const cells = document.querySelectorAll(".cell");
+const button = document.querySelector("button");
 
-cells.forEach((cell) => {
-    cell.addEventListener("mouseenter", () => {
-        cell.classList.add("hover");
-    });
-
-    cell.addEventListener("mouseleave", () => {
-        cell.classList.remove("hover");
-    });
+button.addEventListener("click", () => {
+    let numSquares = prompt("How many squares?");
+    makeGrid(numSquares);
 });
+
+makeGrid(16);
