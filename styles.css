@@ -8,18 +8,21 @@ body {
 }
 
 .container {
+    width: 85vh;
+    height: 85vh;
+    display: flex;
+    flex-direction: column;
     border: solid 1px;
-    width: min-content;
 }
 
 .row {
     display: flex;
+    flex: 1 1;
 }
 
 .cell {
     border: solid 1px;
-    width: 5vh;
-    height: 5vh;
+    flex: 1 1;
 }
 
 .hover {
