@@ -28,10 +28,6 @@ function makeGrid(num) {
         cell.addEventListener("mouseenter", () => {
             cell.classList.add("hover");
         });
-
-        cell.addEventListener("mouseleave", () => {
-            cell.classList.remove("hover");
-        });
     });
 }
 
