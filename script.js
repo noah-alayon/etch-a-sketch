@@ -1,8 +1,11 @@
 const container = document.querySelector(".container");
 
 function makeGrid(num) {
+    // Set maximum squares to 100 to prevent lag
+    if (num > 100) num = 100;
+
     // Delete the existing grid
-    container.replaceChildren();  
+    container.replaceChildren();
 
     // Make the num x num grid
     for (let i = 0; i < num; ++i) {
