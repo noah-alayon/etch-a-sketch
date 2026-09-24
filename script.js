@@ -13,3 +13,15 @@ for (let i = 0; i < 16; ++i) {
 
     container.appendChild(row);
 }
+
+const cells = document.querySelectorAll(".cell");
+
+cells.forEach((cell) => {
+    cell.addEventListener("mouseenter", () => {
+        cell.classList.add("hover");
+    });
+
+    cell.addEventListener("mouseleave", () => {
+        cell.classList.remove("hover");
+    });
+});
